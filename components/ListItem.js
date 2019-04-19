@@ -43,19 +43,23 @@ export default class ListItem extends Component {
             itemNumber
         } = this.props;
 
-        return this.state.isEditMode ? (
-            <InputText
-                onSubmit={this.handleSubmit}
-                inputRef={this.inputRef}
-                inputValue={this.state.inputValue}
-                onInputChange={this.updateInputValue}
-                buttonText='update' />
-        ) : (
+        return (
             <div className={css.listItem} key={itemNumber.toString()}>
-                <h4>{itemNumber + 1}. </h4>
-                <h3 onClick={() => this.editItem(item.text)}>{item.text}</h3>
-                <button className={css.doneButton} onClick={() => this.props.deleteItem(itemNumber)}>done</button>
+                <h4>{itemNumber + 1}.</h4>
+                {this.state.isEditMode ? 
+                    <InputText
+                        onSubmit={this.handleSubmit}
+                        inputRef={this.inputRef}
+                        inputValue={this.state.inputValue}
+                        onInputChange={this.updateInputValue}
+                        buttonText='update' />
+                    :
+                    <React.Fragment>
+                        <h3 onClick={() => this.editItem(item.text)}>{item.text}</h3>
+                        <button className={css.doneButton} onClick={() => this.props.deleteItem(itemNumber)}>done</button>
+                    </React.Fragment>
+                }
             </div>
-        )
+        );
     }    
 }

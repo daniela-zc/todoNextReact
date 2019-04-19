@@ -1,0 +1,76 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    background-color: #303030;
+    text-align: center;
+}
+
+.title {
+    color: cyan;
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 50vw;
+    margin: 20px auto;
+}
+
+.listItem {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+}
+
+.listItem > * {
+    margin: 5px;
+}
+
+.listItem > h4 {
+    color: orangered;
+    flex: 1 1 10%;
+}
+
+.listItem > h3 {
+    color: white;
+    flex: 1 1 70%;
+}
+
+.doneButton {
+    padding: 5px 10px;
+    color: greenyellow;
+    background-color: #303030;
+    border-color: greenyellow;
+    flex: 1 1 10%;
+}
+
+.form {
+    margin: 10px auto;
+    width: 30vw;
+    display: flex;
+    flex-direction: row;
+}
+
+.form > * {
+    margin: 0 5px;
+    padding: 10px 5px;
+}
+
+.form > input {
+    flex: 1 1 90%;
+    color: orangered;
+    background-color: #303030;
+    border: solid 1px orangered;
+}
+
+.form > button {
+    flex: 1 1 10%;
+    color: greenyellow;
+    background-color: #303030;
+    border: solid 1px greenyellow;
+}

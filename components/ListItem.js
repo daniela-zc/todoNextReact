@@ -7,7 +7,8 @@ export default class ListItem extends Component {
         super(props);
         this.state = {
             isEditMode: false,
-            inputValue: ''
+            inputValue: '',
+            status: 0
         };
         this.editItem = this.editItem.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -53,11 +54,17 @@ export default class ListItem extends Component {
                         inputValue={this.state.inputValue}
                         onInputChange={this.updateInputValue}
                         buttonText='update' />
-                    :
+                :
+                this.props.deleteItem && this.props.updateItem ?
                     <React.Fragment>
                         <h3 onClick={() => this.editItem(item.text)}>{item.text}</h3>
                         <button className={css.doneButton} onClick={() => this.props.deleteItem(itemNumber)}>done</button>
                     </React.Fragment>
+                :
+                <React.Fragment>
+                    <h3>{item.text}</h3>
+                    <button className={css.doneButton + ' ' + css.buttonDisabled} disabled='disabled'>done</button>
+                </React.Fragment>
                 }
             </div>
         );

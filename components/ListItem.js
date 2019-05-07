@@ -61,7 +61,10 @@ export default class ListItem extends Component {
                         <button className={css.doneButton} onClick={() => this.props.deleteItem(itemNumber)}>done</button>
                     </React.Fragment>
                 :
-                <h3 >{item.text}</h3>
+                <React.Fragment>
+                    <h3>{item.text}</h3>
+                    <button className={css.doneButton + ' ' + css.buttonDisabled} disabled='disabled'>done</button>
+                </React.Fragment>
                 }
             </div>
         );

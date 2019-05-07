@@ -55,7 +55,7 @@ export default class ListItem extends Component {
                         onInputChange={this.updateInputValue}
                         buttonText='update' />
                 :
-                (this.props.deleteItem !== null) && (this.props.updateItem !== null) ?
+                this.props.deleteItem && this.props.updateItem ?
                     <React.Fragment>
                         <h3 onClick={() => this.editItem(item.text)}>{item.text}</h3>
                         <button className={css.doneButton} onClick={() => this.props.deleteItem(itemNumber)}>done</button>

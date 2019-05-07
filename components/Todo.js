@@ -49,9 +49,12 @@ export default class Todo extends Component {
     }
 
     render() {
-        let list = this.state.listItems.filter(function(item){
-            return item.status;
-        });
+        let listItems = this.state.listItems;
+        let list = [];
+         // Get only active items
+        for(var i = 0; i < listItems.length; i++) {
+            if (listItems[i].status) list[i] = listItems[i];
+        }
         return (
             <React.Fragment>
                 <InputText
